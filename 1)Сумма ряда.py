@@ -1,3 +1,2 @@
-a = [8,8,8,8,8,8,8,8]
-b = len(a)
-print (b)
+a = sum(range(88888888)
+print(a)
