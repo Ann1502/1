@@ -1,0 +1,63 @@
+#Словарь
+#возможность доступа по человеко-чистаемым ключам, применяется для относительно небольших словарей.
+#дубликаты недопустимы как и со множествами (в примере ниже, чтобы записать два айфона пришлось записать
+# их как первый и второй ключи в словаре не изменяются, но меняется их значение (key:value)
+
+X={
+        'Iphone1' : {'model':'7', 'color':'Красный', 'age':'2016'},
+        'Iphone2' : {'model':'7', 'color':'Красный', 'age':'2016'},
+        'Sumsung' : {'model':'А15', 'color':'Красный',  'age':'2010'},
+        'Xiaomi' : {'model':'Redmi', 'color':'Серый', 'age':'2017'}
+}
+name1 = input("Введите модель: ")
+flag = True
+for search_emploers in X:
+    if X[search_emploers]['model'] == name1:
+        print(X[search_emploers]['color'])
+        print(X[search_emploers]['age'])
+        flag = False
+if flag:
+    print('нет такого значения')
+
+print(X)
+print(X['Sumsung']['model'])
+print(X['Xiaomi']['color'])
+
+#список:
+#работает только по числовым ключам,
+#допускается замена, присваивание, удаление, добавление индексов и их значений
+#допускаются дубликаты, в словаре такого не допускается.
+
+
+phone = [
+    ['Iphone'], ['model:7', 'color:Красный', 'age:2016'],
+    ['Iphone'], ['model:7', 'color:Красный', 'age:2016'],
+    ['Sumsung'], ['model:А15', 'color:Красный', 'age:2010'],
+    ['Xiaomi'], ['model:Redmi', 'color:Серый', 'age:2017'],
+]
+name1 = input('Введите модель: ')
+z=(phone.index([name1])+1)
+print(phone[z][0])
+#либо
+print(phone[z])
+
+
+#Множество
+#Синтаксически обозначаются одинаково со словарем
+#Элементы множества легко перебираются циклом, лекго определить в переменные (brend, model, color, age) и вывести
+
+phone = {
+    ('Iphone', '7', 'Красный', '2016'),
+    ('Iphone', '7', 'Красный', '2016'),
+    ('Sumsung', 'А15', 'Красный', '2010'),
+    ('Xiaomi', 'Redmi', 'Серый', '2017'),
+    }
+for brend, model, color, age in phone:
+    print(brend,model)
+
+name1 = input('Введите бренд:')
+name2 = input('Введите модель:')
+name3 = input('Введите цвет:')
+name4 = input('Введите год:')
+
+print((name1, name2, name3, name4) in phone)
